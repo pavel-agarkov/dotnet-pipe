@@ -40,3 +40,26 @@ var b = Enumerable.Range(0, 100)
     | Pipe<string>.Join("-", "Test")
     | Pipe<string>.ToConsole;
 ```
+## Option 2 without pipes
+```cs
+Console.WriteLine(TimeSpan
+    .FromDays(1d)
+    .Add(TimeSpan.FromHours(3))
+    .ToString()
+    .Split(':', '.')
+    .Select(str => int.Parse(str))
+    .Sum()
+    .ToString()
+    .ToLower()
+);
+
+Console.WriteLine(
+    string.Join("-", new[] {
+        Enumerable.Range(0, 100)
+            .Select(n => n * 2)
+            .Where(n => n % 3 > 1)
+            .Sum()
+            .ToString(),"Test"
+    })
+);
+```

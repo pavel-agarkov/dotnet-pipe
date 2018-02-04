@@ -9,7 +9,7 @@ namespace Option2
     {
         static void Main(string[] args)
         {
-            var result1 = 1d
+            var piped1 = 1d
                 | Pipe<double>.ToTimeSpanAsDays
                 | Pipe<TimeSpan>.AddHours(3)
                 | Pipe<TimeSpan>.ToString
@@ -20,13 +20,34 @@ namespace Option2
                 | Pipe<string>.ToLower
                 | Pipe<string>.ToConsole;
 
-            var result2 = Enumerable.Range(0, 100)
+            var piped2 = Enumerable.Range(0, 100)
                 | Pipe<int>.Select(n => n * 2)
                 | Pipe<int>.Where(n => n % 3 > 1)
                 | Pipe<int>.Sum
                 | Pipe<int>.ToString
                 | Pipe<string>.Join("-", "Test")
                 | Pipe<string>.ToConsole;
+
+            Console.WriteLine(TimeSpan
+                .FromDays(1d)
+                .Add(TimeSpan.FromHours(3))
+                .ToString()
+                .Split(':', '.')
+                .Select(str => int.Parse(str))
+                .Sum()
+                .ToString()
+                .ToLower()
+            );
+
+            Console.WriteLine(
+                string.Join("-", new[] {
+                    Enumerable.Range(0, 100)
+                        .Select(n => n * 2)
+                        .Where(n => n % 3 > 1)
+                        .Sum()
+                        .ToString(),"Test"
+                })
+            );
 
             Console.ReadKey();
         }
