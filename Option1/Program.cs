@@ -31,11 +31,11 @@ namespace Option1
 
     public static class Pipe<TInput>
     {
-        public static Func<TInput, dynamic> ToConsole =>
+        public static Func<TInput, TInput> ToConsole =>
             input =>
             {
                 Console.WriteLine(input);
-                return null;
+                return input;
             };
 
         public static Func<IEnumerable<TInput>, IEnumerable<TInput>> Where(Func<TInput, bool> filter) =>

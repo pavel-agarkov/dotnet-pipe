@@ -34,11 +34,11 @@ namespace Option2
 
     public static class Pipe<TInput>
     {
-        public static PipedFunction<TInput, dynamic> ToConsole =>
-            Piped.FromFunc<TInput, dynamic>(input =>
+        public static PipedFunction<TInput, TInput> ToConsole =>
+            Piped.FromFunc<TInput, TInput>(input =>
             {
                 Console.WriteLine(input);
-                return null;
+                return input;
             });
 
         public static PipedFunction<IEnumerable<TInput>, IEnumerable<TInput>> Where(Func<TInput, bool> filter) =>
