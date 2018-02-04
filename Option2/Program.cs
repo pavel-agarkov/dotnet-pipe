@@ -25,7 +25,7 @@ namespace Option2
                 | Pipe<int>.Where(n => n % 3 > 1)
                 | Pipe<int>.Sum
                 | Pipe<int>.ToString
-                | Pipe<string>.Join("-", "Test")
+                | Pipe<string>.Join("-", "Option", "#", "2")
                 | Pipe<string>.ToConsole;
 
             Console.WriteLine(TimeSpan
@@ -45,7 +45,8 @@ namespace Option2
                         .Select(n => n * 2)
                         .Where(n => n % 3 > 1)
                         .Sum()
-                        .ToString(),"Test"
+                        .ToString(),
+                    "Option", "#", "2"
                 })
             );
 
@@ -93,8 +94,8 @@ namespace Option2
                 throw Error(nameof(ParseAllTo));
             }));
 
-        public static PipedFunction<string, string> Join(string separator, params string[] strToJoin) =>
-            Piped.FromFunc<string, string>(str => string.Join(separator, new[] { str }.Union(strToJoin)));
+        public static PipedFunction<string, string> Join(string separator, params string[] strArray) =>
+            Piped.FromFunc<string, string>(str => string.Join(separator, new[] { str }.Union(strArray)));
 
         public static PipedFunction<string, string> ToLower =>
             Piped.FromFunc<string, string>(str => str.ToLower());

@@ -69,8 +69,8 @@ namespace Option1
                 throw Error(nameof(ParseAllTo));
             });
 
-        public static Func<string, string> Join(string separator, params string[] strToJoin) =>
-            str => string.Join(separator, new[] { str }.Union(strToJoin));
+        public static Func<string, string> Join(string separator, params string[] strArray) =>
+            str => string.Join(separator, new[] { str }.Union(strArray));
 
         public static Func<string, string> ToLower =>
             str => str.ToLower();
