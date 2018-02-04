@@ -19,7 +19,7 @@ Enumerable.Range(0, 100).Pipe(
     Pipe<string>.ToConsole
 );
 ```
-# [Option 2](option2)
+## [Option 2](option2)
 ```cs
 var a = 1d
     | Pipe<double>.ToTimeSpanAsDays
