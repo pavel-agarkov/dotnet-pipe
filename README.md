@@ -1,7 +1,7 @@
 # Naive implementations of a pipe operation in C#
 This repository contains two working implementations of a pipe operation in C#.
 
-## [Option 1](/master/Option1)
+## [Option 1](../master/Option1)
 ```cs
 1d.Pipe(
     Pipe<double>.ToTimeSpanAsDays,
