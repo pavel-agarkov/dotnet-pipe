@@ -1,7 +1,7 @@
 # Naive implementations of a pipe operation in C#
 This repository contains two working implementations of a pipe operation in C#.
 
-## [Option 1](option1)
+## [Option 1](tree/master/Option1)
 ```cs
 1d.Pipe(
     Pipe<double>.ToTimeSpanAsDays,
@@ -19,7 +19,7 @@ Enumerable.Range(0, 100).Pipe(
     Pipe<string>.ToConsole
 );
 ```
-## [Option 2](option2)
+## [Option 2](tree/master/Option2)
 ```cs
 var a = 1d
     | Pipe<double>.ToTimeSpanAsDays
