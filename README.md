@@ -21,7 +21,7 @@ Enumerable.Range(0, 100).Pipe(
 ```
 ## [Option 2](../master/Option2)
 ```cs
-var a = 1d
+var piped1 = 1d
     | Pipe<double>.ToTimeSpanAsDays
     | Pipe<TimeSpan>.AddHours(3)
     | Pipe<TimeSpan>.ToString
@@ -32,12 +32,12 @@ var a = 1d
     | Pipe<string>.ToLower
     | Pipe<string>.ToConsole;
 
-var b = Enumerable.Range(0, 100)
+var piped2 = Enumerable.Range(0, 100)
     | Pipe<int>.Select(n => n * 2)
     | Pipe<int>.Where(n => n % 3 > 1)
     | Pipe<int>.Sum
     | Pipe<int>.ToString
-    | Pipe<string>.Join("-", "Test")
+    | Pipe<string>.Join("-", "Option", "#", "2")
     | Pipe<string>.ToConsole;
 ```
 ## Option 2 without pipes
@@ -59,7 +59,8 @@ Console.WriteLine(
             .Select(n => n * 2)
             .Where(n => n % 3 > 1)
             .Sum()
-            .ToString(),"Test"
+            .ToString(),
+        "Option", "#", "2"
     })
 );
 ```
